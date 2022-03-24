@@ -1,0 +1,28 @@
+//------------------------------------------------
+//--- 010 Editor v12.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+local int a = FTell();
+local int b = FileSize();
+while(a<b){
+struct mes{
+    struct line1{
+        char Message[48];
+    }Line1<name="Line 1">;
+    struct line2{
+        char Message[48];
+    }Line2<name="Line 2">;
+    struct line3{
+        char Message[48];
+    }Line3<name="Line 3">;
+}Mes<name="MES">;
+a=FTell();
+};
