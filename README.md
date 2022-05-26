@@ -1,5 +1,5 @@
 # Information
-Use full length alphanumeric characters.  The file will not repack properly if you do not.  There is no way around this (without editing the eboot.bin of the game)
+Use full length alphanumeric characters.  The file will not repack properly if you do not.  There is no way around this (without editing the eboot.bin of the game).
 This is my first python tool so expect pretty bad coding if you want to read it.
 Includes an edited version of SutandoTsukai181's [PyBinaryReader](https://github.com/SutandoTsukai181/PyBinaryReader).
 
