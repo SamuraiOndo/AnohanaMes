@@ -1,4 +1,4 @@
-from binary import BinaryReader
+from binary_reader import BinaryReader
 import sys
 import json
 from pathlib import Path
@@ -6,21 +6,21 @@ from pathlib import Path
 path = open(sys.argv[1], "rb")
 reader = BinaryReader(path.read())
 if(reader.read_uint16()==3451):
-    f = open(sys.argv[1], encoding='shift_jisx0213') # change it to "open file as text" (rather than initial binary) # might be a better way to do this than reopen the file
-    fe = open(sys.argv[1] + ".DAT", "wb") # create or replace ("w") myfile.bin > name to sys.argv (compile)
+    f = open(sys.argv[1], encoding='shift_jisx0213') 
+    fe = open(sys.argv[1] + ".DAT", "wb") 
     w = BinaryReader()
     w.set_endian(True)
     w.set_encoding("cp932")
-    p = json.loads(f.read()) # load file to json
+    p = json.loads(f.read()) 
     nodecount = p["Count"]
     for i in range(nodecount):
         x = p[str(i)]
         txt = x["Line 1"]
         txt2 = x["Line 2"]
         txt3 = x["Line 3"]
-        w.write_str_fixed_sjis(x["Line 1"],size = 48)
-        w.write_str_fixed_sjis(x["Line 2"],size = 48)
-        w.write_str_fixed_sjis(x["Line 3"],size = 48)
+        w.write_str_fixed(x["Line 1"],size = 48)
+        w.write_str_fixed(x["Line 2"],size = 48)
+        w.write_str_fixed(x["Line 3"],size = 48)
     print(txt.encode(encoding='cp932'))
     fe.write(w.buffer())
 else:   
